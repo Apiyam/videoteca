@@ -1,0 +1,123 @@
+import * as React from 'react';
+import GlobalStyles from '@mui/joy/GlobalStyles';
+import CssBaseline from '@mui/joy/CssBaseline';
+import Box from '@mui/joy/Box';
+import Typography from '@mui/joy/Typography';
+import Stack from '@mui/joy/Stack';
+import { SignIn } from '@clerk/nextjs';
+import { useUser } from '@clerk/nextjs';
+import RedirectionInDashboard from './components/RedirectionToLogin';
+
+export default function ApiyamLoginClients() {
+  const {user} = useUser();
+  console.log(user);
+  if(user){
+    return <RedirectionInDashboard />
+  }
+
+
+
+  return (
+    <div>
+      <CssBaseline />
+      <GlobalStyles
+        styles={{
+          ':root': {
+            '--Form-maxWidth': '800px',
+            '--Transition-duration': '0.4s', // set to `none` to disable transition
+          },
+        }}
+      />
+      <Box
+        sx={(theme) => ({
+          width: { xs: '100%', md: '50vw' },
+          transition: 'width var(--Transition-duration)',
+          transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
+          position: 'relative',
+          zIndex: 1,
+          display: 'flex',
+          justifyContent: 'flex-end',
+          backdropFilter: 'blur(12px)',
+          backgroundColor: 'rgba(255 255 255 / 0.2)',
+          [theme.getColorSchemeSelector('dark')]: {
+            backgroundColor: 'rgba(19 19 24 / 0.4)',
+          },
+        })}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100dvh',
+            width: '100%',
+            px: 2,
+          }}
+        >
+          <Box
+            component="header"
+          >
+            <Box sx={{ gap: 2, display: 'flex', alignItems: 'center' }}>
+              
+            </Box>
+          </Box>
+          <Box
+            component="main"
+            sx={{
+              my: 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+              width: 400,
+              maxWidth: '100%',
+              mx: 'auto',
+              borderRadius: 'sm',
+              '& form': {
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+              },
+              [`& .MuiFormLabel-asterisk`]: {
+                visibility: 'hidden',
+              },
+              backgroundColor: '#e5e5e5',
+            }}
+          >
+
+              <Stack sx={{ gap: 1 }} bgcolor="#e5e5e5">
+                <SignIn routing="hash" forceRedirectUrl="/escuela/videos-y-cursos" />
+              </Stack>
+          </Box>
+          <Box component="footer" >
+            <Typography level="body-xs" sx={{ textAlign: 'center' }}>
+              © Videoteca Burlesqa - Desarrollado con ☕ por Apiyam {new Date().getFullYear()}
+            </Typography>
+            <br />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={(theme) => ({
+          height: '100%',
+          position: 'fixed',
+          right: 0,
+          top: 0,
+          bottom: 0,
+          left: { xs: 0, md: '50vw' },
+          transition:
+            'background-image var(--Transition-duration), left var(--Transition-duration) !important',
+          transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
+          backgroundColor: 'background.level1',
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom',
+          backgroundRepeat: 'no-repeat',
+          backgroundImage:
+            'url(/imgs/videoteca.jpg)',
+          [theme.getColorSchemeSelector('dark')]: {
+            backgroundImage:
+              'url(/imgs/videoteca.jpg)',
+          },
+        })}
+      />
+    </div>
+  );
+}
