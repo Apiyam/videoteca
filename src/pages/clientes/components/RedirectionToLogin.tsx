@@ -9,7 +9,7 @@ const RedirectionInDashboard = () => {
   useEffect(() => {
     if (user) {
       console.log(user);
-      router.push('/clientes/mi-negocio');
+      router.push('/clientes/videos');
     } else {
       router.push('/clientes/login');
     }
