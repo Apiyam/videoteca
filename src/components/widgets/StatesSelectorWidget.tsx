@@ -14,7 +14,7 @@ export default function StatesSelectorWidget(props: FormControlProps) {
       <Autocomplete
         autoHighlight
         isOptionEqualToValue={(option, value) => option.code === value.code}
-        defaultValue={{ code: 'AGS', label: 'Aguascalientes' }}
+        defaultValue={states[0] as any}
         options={states}
         renderOption={(optionProps, option) => (
           <AutocompleteOption {...optionProps}>

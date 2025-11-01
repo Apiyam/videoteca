@@ -54,7 +54,8 @@ const SeatGrid = styled(Sheet)({
 
 export default function SeatTripSelector({ onSelectSeat }: { onSelectSeat: (seat: number) => void }) {
   const [loading, setLoading] = useState(false)
-  const { bookingData } = useAppContext()
+ // const { bookingData } = useAppContext()
+ const [bookingData, setBookingData] = useState({ seats: 0 })
   const [selectedSeats, setSelectedSeats] = useState(0)
   const [showMaxSeatsError, setShowMaxSeatsError] = useState(false)
 
