@@ -1,5 +1,5 @@
 {
-  "name": "saga_js",
+  "name": "burlesqa_app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,15 +14,11 @@
     "@supabase/supabase-js": "^2.49.8",
     "axios": "^1.7.9",
     "next": "^15.1.7",
-    "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.8",
     "react-medium-image-zoom": "^5.2.14",
     "react-player": "^3.3.2",
-    "react-seat-picker": "^1.5.3",
-    "react-swipeable-views": "^0.14.0",
     "react-tooltip": "^5.28.0",
     "react-zoom-pan-pinch": "^3.7.0",
     "recharts": "^2.15.3",
