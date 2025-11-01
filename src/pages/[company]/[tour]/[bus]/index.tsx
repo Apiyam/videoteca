@@ -70,7 +70,8 @@ const BusPage = () => {
 
   const [selectedSeats, setSelectedSeats] = useState(0);
 
-  const { bookingData, setBookingData } = useAppContext();
+  //const { bookingData, setBookingData } = useAppContext();
+  const [bookingData, setBookingData] = useState({seats: 0, discount: 0, phone: "", paymentMethod: ""} );
 
 
   const handleCheckout = async () => {
