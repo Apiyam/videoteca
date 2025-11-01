@@ -19,7 +19,8 @@ import { AlertTitle } from '@mui/material';
 
 export default function ReservationWidget({trip}: any) {
   const [url, setUrl] = useState('');
-  const { bookingData, setBookingData } = useAppContext();
+  //const { bookingData, setBookingData } = useAppContext();
+  const [bookingData, setBookingData] = useState({ seats: 0, phone: '' });
 
 
   useEffect(() => {
