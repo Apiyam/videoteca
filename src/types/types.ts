@@ -115,6 +115,7 @@ export type IBusinessHours = {
 
 export type IHour = {
     day: string;
+    hours?: any;
     start: string;
     end: string;
     isOpen: boolean;
