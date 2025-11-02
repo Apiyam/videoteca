@@ -395,7 +395,7 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
   const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHMuZGV2JA";
   const renderAdminApp = () => (
     
-  <ClerkProvider publishableKey={clerkPublishableKey} localization={esES}>
+  
   <CssVarsProvider
     disableTransitionOnChange
     defaultColorScheme="dark"
@@ -404,14 +404,8 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
     <CssBaseline />
     <Component {...pageProps} />
   </CssVarsProvider>
-  </ClerkProvider>
   );
   
-  const renderNoCompany = () => (
-    <div>
-      <h1>No se encontró la empresa</h1>
-    </div>
-  );
   
   const renderCompanyApp = () => (
     
@@ -457,7 +451,11 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
   }, [router.query.company, isAdminRoute]);
 
   console.log(isAdminRoute);
-  return isAdminRoute ? renderAdminApp() : renderCompanyApp()
+  return (
+    <ClerkProvider publishableKey={clerkPublishableKey} localization={esES}>
+      {isAdminRoute ? renderAdminApp() : renderCompanyApp()}
+    </ClerkProvider>
+  );
 
   
 }
