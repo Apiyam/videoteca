@@ -84,7 +84,7 @@ export default function ApiyamLoginClients() {
           >
 
               <Stack sx={{ gap: 1 }} bgcolor="#e5e5e5">
-                <SignIn routing="hash" forceRedirectUrl="/escuela/videos-y-cursos" />
+                <SignIn routing="hash" forceRedirectUrl="/clientes/whatsapp" />
               </Stack>
           </Box>
           <Box component="footer" >

@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 //@ts-ignore
-import SwipeableViews from 'react-swipeable-views';
 import { useCourses } from 'hooks/useBusiness';
 import { useVideoElements } from 'hooks/useBusiness';
 import { VideoCourse, VideoElement } from 'types/types';
@@ -109,7 +108,7 @@ export default function HomePage() {
             Sitio web
           </Button>
         </Link>
-        <Link href="/escuela/login">
+        <Link href="/clientes/login">
           <Button variant="soft" color="primary">
             Iniciar sesión
           </Button> 
@@ -118,7 +117,6 @@ export default function HomePage() {
       </Sheet>
 
       {/* Hero Slider */}
-      <SwipeableViews index={index} onChangeIndex={setIndex} enableMouseEvents>
         {slides.map((slide, i) => (
           <Sheet
             key={i}
@@ -151,7 +149,6 @@ export default function HomePage() {
             </Button>
           </Sheet>
         ))}
-      </SwipeableViews>
 
       {/* Beneficios */}
       <Sheet

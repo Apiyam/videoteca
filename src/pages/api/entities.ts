@@ -24,5 +24,5 @@ export const fetchClientLeads = async () => {
 
 export const fetchChatMessages = async (phoneNumber: string) => {
     const chatMessages = await query('messages', 'user_phone', phoneNumber);
-    return chatMessages;
+    return chatMessages.sort((a:any, b:any) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
 }

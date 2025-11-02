@@ -475,7 +475,7 @@ const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHM
 
 function SagaApp({ Component, pageProps, router }: AppProps) {
   const renderAdminApp = () => (
-    <ClerkProvider publishableKey={clerkPublishableKey!} localization={esES}>
+    
   <CssVarsProvider
     disableTransitionOnChange
     defaultColorScheme="dark"
@@ -484,7 +484,6 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
     <CssBaseline />
     <Component {...pageProps} />
   </CssVarsProvider>
-</ClerkProvider>
   );
   
   const renderNoCompany = () => (
@@ -494,11 +493,11 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
   );
   
   const renderCompanyApp = () => (
+    
     <AppProvider companyData={companyInfo!}>
       <CssVarsProvider
         disableTransitionOnChange
         defaultColorScheme="dark"
-        theme={customTheme(companyInfo!.config || DEFAULT_CONFIG)}
         modeStorageKey=""
       >
         <CssBaseline />
@@ -537,9 +536,13 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
   }, [router.query.company, isAdminRoute]);
 
   console.log(isAdminRoute);
+  return (
+    <ClerkProvider publishableKey={clerkPublishableKey!} localization={esES}>
+      {isAdminRoute ? renderAdminApp() : renderCompanyApp()}
+    </ClerkProvider>
+  );
 
-  if (isHome) return <HomePage />;
-  return renderAdminApp();
+  
 }
 
 export default SagaApp;
