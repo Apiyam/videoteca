@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { ClerkProvider } from '@clerk/nextjs';
 //@ts-ignore
 import { useCourses } from 'hooks/useBusiness';
 import { useVideoElements } from 'hooks/useBusiness';
@@ -25,6 +26,7 @@ import HeadingText from 'components/commons/HeadingText';
 import CourseVideoCard from './escuela/_components/CourseVideoCard';
 import CourseVideoDetailsModal from './escuela/_components/CourseVideoDetailsModal';
 import Footer from 'components/commons/Footer';
+import { esES } from '@clerk/localizations';
 
 const slides = [
   {
@@ -78,8 +80,10 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, []);
 
+  const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHMuZGV2JA";
+
   return (
-    <>
+    
     <CssVarsProvider
     disableTransitionOnChange
     defaultColorScheme="dark"
@@ -287,6 +291,5 @@ export default function HomePage() {
         <Footer />
   </CssVarsProvider>
 
-    </>
   );
 }

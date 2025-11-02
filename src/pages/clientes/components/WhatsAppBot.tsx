@@ -113,12 +113,12 @@ export default function WhatsAppBot() {
                   onClick={() => setSelectedChat(chat)}
                   sx={{
                     cursor: 'pointer',
-                    bgcolor: selectedChat.phone_number === chat.phone_number ? 'primary.softBg' : 'transparent',
+                    bgcolor: selectedChat?.phone_number === chat.phone_number ? 'primary.softBg' : 'transparent',
                     '&:hover': { bgcolor: 'neutral.softBg' },
                     p: 1.5,
                     mb: 1,
                     border: '1px solid',
-                    borderColor: selectedChat.phone_number === chat.phone_number ? 'primary.plainColor' : 'divider',
+                    borderColor: selectedChat?.phone_number === chat.phone_number ? 'primary.plainColor' : 'divider',
                     borderRadius: 'md',
                   }}
                 >

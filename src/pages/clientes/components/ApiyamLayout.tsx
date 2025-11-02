@@ -13,6 +13,8 @@ import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import { useRouter } from 'next/router';
 import { CheckBoxOutlineBlankRounded, CheckCircle } from '@mui/icons-material';
+import { ClerkProvider } from '@clerk/nextjs';
+import { esES } from '@clerk/localizations';
 
 interface ApiyamCardLayoutProps {
   children: React.ReactNode;
@@ -29,6 +31,7 @@ const defaultBreadcrumbs = (title: string, pathname: string) => {
 export default function ApiyamCardLayout({ children, title }: ApiyamCardLayoutProps) {
   const router = useRouter();
   const user = useUser();
+  const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHMuZGV2JA";
   const breadcrumbsList = defaultBreadcrumbs(title, router.pathname);
   if (!user) {
     return <RedirectionInDashboard />;

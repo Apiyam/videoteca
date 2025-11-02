@@ -8,94 +8,13 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import { CompanyData } from 'types/interfaces';
 import { IConfig } from 'types/types';
 import '../App.css';
-import { ClerkProvider, SignedIn, SignedOut } from '@clerk/nextjs';
 import RedirectionToLogin from './clientes/components/RedirectionToLogin';
 import { esES } from '@clerk/localizations';
 import { query, queryOne } from './api/supabase';
 import FullLoad from 'components/commons/FullLoad';
 import HomePage from 'pages/index';
 import { DEFAULT_CONFIG } from 'components/commons/constants';
-
-const customTheme = (config: IConfig) => extendTheme({
-  fontFamily: {
-    display: 'MontHeavy',
-    body: 'Mont',
-  },
-  fontSize: {
-    xs: '1.2rem',
-    sm: '1.4rem',
-    md: '1.6rem',
-    lg: '1.8rem',
-    xl: '2rem',
-  },
-  /*
-  typography: {
-    'h1': {
-      fontSize: '2.5rem',
-    },
-    'h2': {
-      fontSize: '2rem',
-    },
-    'h3': {
-      fontSize: '1.5rem',
-    },
-    'h4': {
-      fontSize: '1rem',
-    },
-    
-    'title-lg': {
-      fontSize: '2.5rem',
-    },
-    'title-md': {
-      fontSize: '1.8rem',
-    },
-    'title-sm': {
-      fontSize: '1.5rem',
-    },
-    'body-lg': {
-      fontSize: '1rem',
-    },
-    'body-md': {
-      fontSize: '1.6rem',
-    },
-    'body-xs': {
-      fontSize: '0.75rem',
-    },
-  },
-  */
-  colorSchemes: {
-    light: {
-      palette: {
-        background: {
-          body: '#eee',
-          level1: config.level1,
-          level2: config.level2,
-          level3: config.strongColor,
-        },
-
-        text: {
-          tertiary: config.tertiaryFontColor,
-          secondary: config.secondaryFontColor,
-        },
-        
-        primary: {
-          50: config.primaryColor,
-          100: config.primaryColor,
-          200: config.primaryColor,
-          300: config.primaryColor,
-          500: config.primaryColor,
-          600: config.primaryColor,
-          
-          
-          plainColor: "#000",
-          
-
-        },
-      },
-    },
-  },
-});
-
+import { ClerkProvider } from '@clerk/nextjs';
 
 
 const companyData = {
@@ -471,11 +390,12 @@ const companyData = {
 };
 
 
-const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
 function SagaApp({ Component, pageProps, router }: AppProps) {
+  const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHMuZGV2JA";
   const renderAdminApp = () => (
     
+  <ClerkProvider publishableKey={clerkPublishableKey} localization={esES}>
   <CssVarsProvider
     disableTransitionOnChange
     defaultColorScheme="dark"
@@ -484,6 +404,7 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
     <CssBaseline />
     <Component {...pageProps} />
   </CssVarsProvider>
+  </ClerkProvider>
   );
   
   const renderNoCompany = () => (
@@ -536,11 +457,7 @@ function SagaApp({ Component, pageProps, router }: AppProps) {
   }, [router.query.company, isAdminRoute]);
 
   console.log(isAdminRoute);
-  return (
-    <ClerkProvider publishableKey={clerkPublishableKey!} localization={esES}>
-      {isAdminRoute ? renderAdminApp() : renderCompanyApp()}
-    </ClerkProvider>
-  );
+  return isAdminRoute ? renderAdminApp() : renderCompanyApp()
 
   
 }
