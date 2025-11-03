@@ -20,21 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <Head>
         <title>Burlesqa</title>
       </Head>
       <body>
-        <ClerkProvider publishableKey={clerkPublishableKey}>
-            <SignedIn>
-              <AuthenticatedLayout>
-                {children}
-              </AuthenticatedLayout>
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
-        </ClerkProvider>
+        {children}
       </body>
     </html>
   );
