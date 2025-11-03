@@ -23,12 +23,9 @@ import SupportRoundedIcon from '@mui/icons-material/SupportRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import { closeSidebar } from './utils';
-import { BusinessCenterOutlined, HelpCenterSharp, LinkRounded, PriceChangeRounded, SchoolSharp, VideoLibraryRounded, VideoLibrarySharp, WhatsApp } from '@mui/icons-material';
+import { closeSidebar } from 'utils/Utils';
+import { HelpCenterSharp, SchoolSharp, VideoLibraryRounded, VideoLibrarySharp, WhatsApp } from '@mui/icons-material';
 import { UserButton, useUser } from '@clerk/nextjs';
-import { useEffect, useState } from 'react';
-import { ICompany } from 'types/interfaces';
-import { useBusiness } from 'hooks/useBusiness';
 
 const baseUrl = "/clientes";
 
