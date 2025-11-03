@@ -38,6 +38,7 @@ const SecureVideoPlayer = ({ videoId }: { videoId: string }) => {
     }, [videoId]);
   
     const playerRef = useRef(null);
+    if (!videoId) return null; 
 
     return (
       <div

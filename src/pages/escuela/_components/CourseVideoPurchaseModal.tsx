@@ -53,6 +53,7 @@ export default function CourseVideoPurchaseModal({ element }: CourseVideoPurchas
       setLoading(false);
     }
   };
+  if (!element) return null; 
   return (
     <>
       {/* Botón Comprar */}

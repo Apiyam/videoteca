@@ -24,6 +24,7 @@ type CourseVideoCardProps = {
 }
 
 export default function CourseVideoCard({ element, onSelect, isPublic = false, shortcut = false }: CourseVideoCardProps) {
+  if (!element) return null; 
   return (
     <Card variant="outlined" sx={{ width: 320 }}>
       <CardOverflow onClick={() => onSelect(element)}>

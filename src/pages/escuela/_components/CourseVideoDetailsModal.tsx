@@ -31,6 +31,7 @@ export default function CourseVideoDetailsModal({
   onClose,
   isPublic = false,
 }: CourseVideoDetailsModalProps) {
+  if (!element) return null; 
   return (
     <Modal open={open} onClose={onClose}>
       <ModalDialog
