@@ -1,6 +1,3 @@
-import "./globals.css";
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/nextjs';
-import { clerkPublishableKey } from '../providers/clerk-config';
 import Head from "next/head";
 import { usePathname } from 'next/navigation';
 
