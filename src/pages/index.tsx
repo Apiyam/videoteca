@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { ClerkProvider } from '@clerk/nextjs';
 //@ts-ignore
 import { useCourses } from 'hooks/useBusiness';
 import { useVideoElements } from 'hooks/useBusiness';
@@ -21,12 +20,10 @@ import {
   CssVarsProvider,
 } from '@mui/joy';
 import ArrowForward from '@mui/icons-material/ArrowForward';
-import { Nature, PhoneForwarded, UpdateOutlined, StarRounded, School, VideoCameraFront } from '@mui/icons-material';
-import HeadingText from 'components/commons/HeadingText';
+import { StarRounded, School, VideoCameraFront } from '@mui/icons-material';
 import CourseVideoCard from './escuela/_components/CourseVideoCard';
 import CourseVideoDetailsModal from './escuela/_components/CourseVideoDetailsModal';
 import Footer from 'components/commons/Footer';
-import { esES } from '@clerk/localizations';
 
 const slides = [
   {
@@ -79,8 +76,6 @@ export default function HomePage() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const clerkPublishableKey = "pk_test_dmVyaWZpZWQtcXVhaWwtODAuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
   return (
     
