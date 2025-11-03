@@ -24,3 +24,10 @@ export function openSidebar() {
       }
     }
   }
+
+  export function defaultBreadcrumbs(title: string, pathname: string) {
+    return [
+      { label: 'Inicio', href: '/' },
+      { label: title, href: pathname }
+    ]
+  }
