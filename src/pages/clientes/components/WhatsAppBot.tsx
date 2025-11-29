@@ -154,7 +154,7 @@ export default function WhatsAppBot() {
 
         <Divider />
 
-        <Stack direction={{ xs: 'column', md: 'row' }} sx={{  height: 480 }}>
+        <Stack direction={{ xs: 'column', md: 'row' }} sx={{  height: 680 }}>
           {/* Lista de conversaciones */}
           {(!isMobile || !selectedChat) && (
             <Sheet
@@ -292,6 +292,7 @@ export default function WhatsAppBot() {
         >
           <Option value="lead">Lead</Option>
           <Option value="contacto">Contacto</Option>
+          <Option value="alumna">Alumna</Option>
           <Option value="prospecto">Prospecto</Option>
           <Option value="colaborador">Colaborador</Option>
           <Option value="ignorado">Ignorado</Option>

@@ -24,7 +24,7 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { closeSidebar } from 'utils/Utils';
-import { HelpCenterSharp, SchoolSharp, VideoLibraryRounded, VideoLibrarySharp, WhatsApp } from '@mui/icons-material';
+import { HelpCenterSharp, SchoolSharp, VideoLibraryRounded, VideoLibrarySharp, ViewAgendaRounded, WhatsApp } from '@mui/icons-material';
 import { UserButton, useUser } from '@clerk/nextjs';
 
 const baseUrl = "/clientes";
@@ -215,7 +215,12 @@ export default function Sidebar() {
               Conversaciones de WhatsApp
             </ListItemButton>
           </ListItem>
-
+          <ListItem>
+            <ListItemButton component="a" href={baseUrl + "/bot"}>
+              <ViewAgendaRounded />
+              Configuración de bot
+            </ListItemButton>
+          </ListItem>
         </List>
         <Card
           invertedColors
