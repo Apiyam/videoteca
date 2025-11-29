@@ -23,4 +23,15 @@ export const returnMainColorScheme = async (image: string) => {
     return response.json();
 }
 
+export const sendAPIRequest = async (payload: any) => {
+    const response = await fetch('https://n8n.srv912585.hstgr.cloud/webhook/burlesqa', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    });
+    return response.json();
+}
+
 

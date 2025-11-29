@@ -1,5 +1,5 @@
 import { useUser } from '@clerk/nextjs';
-import { getAll, insertAndReturn, query } from "./supabase";
+import { getAll, insertAndReturn, query, updateOne } from "./supabase";
 import { Payment, VideoElement } from "types/types";
 
 export const createVideoElement = async (videoElement: VideoElement) => {
@@ -20,6 +20,11 @@ export const createPayment = async (payment: Payment) => {
 export const fetchClientLeads = async () => {
     const clientLeads = await getAll('get_client_leads');
     return clientLeads?.sort((a:any, b:any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+}
+
+export const updateClientLead = async (clientId: number, payload: any) => {
+    const updated = await updateOne('client_lead', clientId , payload);
+    return updated;
 }
 
 export const fetchChatMessages = async (phoneNumber: string) => {
